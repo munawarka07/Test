@@ -1,20 +1,16 @@
-MUNAWAR.IN ASSESSMENT ANALYTICS ADMIN
+SEO INDEX CORRECTION ONLY
 
-Upload these two files into your existing /admin/ folder:
+Upload these files to the same paths in the main GitHub Pages repository:
 
-1) assessment-analytics.html
-2) assessment-analytics-link.js
+1) index.html -> repository root (replace existing root index.html)
+2) hr-hub/index.html -> hr-hub/index.html (replace existing file)
 
-Then add this ONE line to your existing /admin/index.html immediately before </body>:
+Do NOT upload README.txt if you do not want it in the repository.
 
-<script src="/admin/assessment-analytics-link.js"></script>
+Purpose:
+- Restores the real homepage and HR Hub content.
+- When a visitor explicitly requests /index.html, browser redirects to /.
+- When a visitor explicitly requests /hr-hub/index.html, browser redirects to /hr-hub/.
+- Clean URLs continue to render the normal pages.
 
-After GitHub Pages deploys:
-- Open https://munawar.in/admin/
-- A blue "Assessment Analytics" button will appear at the bottom-right.
-- Click it.
-- Enter your ASSESSMENT_ADMIN_KEY.
-- The dashboard shows visual results instead of raw JSON.
-
-The key is stored only in sessionStorage for the current browser session.
-No assessment names, emails, IP addresses or individual answers are displayed by this dashboard.
+GitHub Pages cannot issue different server-side responses for / and /index.html because they resolve to the same static file. This conditional client-side redirect avoids breaking the clean page while reinforcing the canonical URL.
